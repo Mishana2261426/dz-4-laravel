@@ -66,35 +66,49 @@
             thead a {
             	color: #fff;
             }
+
         </style>
     </head>
     <body>
             <div class="content container">
                 <div class="title m-b-md">
-                    Авторы
+                    Список книг
                 </div>
 				<div>
                 	<table class="table table-bordered">
                 		<thead class="thead-dark">
 
                 			<tr>
-                				<th>id<a href="/authors/sorted/asc/id">&#9650</a> <a href="/authors/sorted/desc/id">&#9660</a></th>
-                				<th>Name<a href="/authors/sorted/asc/name">&#9650</a> <a href="/authors/sorted/desc/name">&#9660</a></th>
+                				<th>id <br> <a href="/books/sorted/asc/id">&#9650</a> <br> <a href="/books/sorted/desc/id">&#9660</a></th>
+                				<th>Name <br> <a href="/books/sorted/asc/name">&#9650</a> <br> <a href="/books/sorted/desc/name">&#9660</a></th>
+                				<th>Publish year <br> <a href="/books/sorted/asc/publish_year">&#9650</a> <br> <a href="/books/sorted/desc/publish_year">&#9660</a></th>
+								<th>Author <br> <a href="/books/sorted/asc/author">&#9650</a> <br> <a href="/books/sorted/desc/author">&#9660</a></th>
                 				<th>Delete</th>
                 				<th>Update</th>
                 			</tr>
                 		</thead>
                 		<tbody>
                 			<?php 
-                				foreach ($items as $item) {
+                				foreach ($books as $book) {
                 					?>
                 					<tr>
-                						<td><?=$item->id?></td>
-                						<td><?=$item->name?></td>
-                						<td><a href="/authors/<?php echo $item->id; ?>/delete" class="btn btn-danger">Удалить</a></td>
+                						<td><?=$book->id?></td>
+                						<td><?=$book->name?></td>
+                						<td><?=$book->publish_year?></td>
+                						<td><?=$book->author->name?></td>
+                						<td><a href="/books/<?php echo $book->id; ?>/delete" class="btn btn-danger">Удалить</a></td>
                 						<td>
-                							<form action="/authors/<?php echo $item->id?>/update" method="POST">
-                								<input type="text" name="name" placeholder="Автор">
+                							<form action="/books/<?php echo $book->id?>/update" method="POST">
+                								<input type="text" name="name" placeholder="Наименование" required>
+                								<input type="text" name="publish_year" placeholder="Год" required>
+                								<select name="author_id">
+						                			<?php foreach ($authors as $author) {
+						                				?>
+
+						                				<option value="<?=$author->id; ?>"><?=$author->name; ?></option>
+						                			<?php	
+						                			} ?>	
+                								</select>
                 								<input type="submit" value="Изменить" class="btn btn-warning">
                 							</form>
                 						</td>

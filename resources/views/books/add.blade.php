@@ -6,8 +6,6 @@
 
         <title>Laravel</title>
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
@@ -68,7 +66,33 @@
     <body>
         <div class="flex-center position-ref full-height">
             <div class="content">
+                <div class="title m-b-md">
+                    Добавить книгу
+                </div>
+                <form action="/books" method="POST">
 
+                	<div class="form-group">
+                		<label for="name">Наименование книги</label>
+                		<input type="text" name="name" class="form-control" id="name" required>
+                	</div>
+                	<div class="form-group">
+                		<label for="publish_year">Год публикации книги</label>
+                		<input type="text" name="publish_year" class="form-control" id="publish_year" required>
+                	</div>
+                	<div class="form-group">
+                		<label>Автор книги</label>
+                		<select name="author_id" id="author_id">
+                			<?php foreach ($authors as $author) {
+                			?>
+                				<option value="<?=$author->id; ?>"><?=$author->name; ?></option>
+                				
+                			<?php } ?>
+                		</select>
+                	</div>
+                	<div>
+                		<input type="submit" value="Сохранить" class="btn btn-primary">
+                	</div>
+                </form>
             </div>
         </div>
     </body>
