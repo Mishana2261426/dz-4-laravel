@@ -62,5 +62,17 @@ class BooksController extends Controller
 		return redirect('/books');
 	}
 
+	public function search() {
+		$data = request('author_select');
+
+		
+
+		$books = Book::where('author_id', '=', $data)->get();
+
+		return view('books.search', [
+			'books' => $books,
+		]);
+	}
+
 
 }

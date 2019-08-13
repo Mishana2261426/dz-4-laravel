@@ -45,3 +45,5 @@ Route::get('/books/sorted/desc/publish_year', 'BooksSortedController@publish_yea
 
 Route::get('/books/sorted/asc/author', 'BooksSortedController@author_sortASC');
 Route::get('/books/sorted/desc/author', 'BooksSortedController@author_sortDESC');
+
+Route::post('/books/search', 'BooksController@search');
