@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Author;
 use App\Book;
 
 class BooksSortedController extends Controller
 {
 
 	public function id_sortASC() {
+		$authors = Author::all();
 		
 		$query = Book::query();
 
@@ -15,10 +17,11 @@ class BooksSortedController extends Controller
 
 		$books = $query->get();
 
-		return view('books.index', ['books' => $books]);
+		return view('books.index', ['books' => $books, 'authors' => $authors]);
 	}
 
 	public function id_sortDESC() {
+		$authors = Author::all();
 		
 		$query = Book::query();
 
@@ -26,10 +29,11 @@ class BooksSortedController extends Controller
 
 		$books = $query->get();
 
-		return view('books.index', ['books' => $books]);
+		return view('books.index', ['books' => $books, 'authors' => $authors]);
 	}
 
 	public function name_sortASC() {
+		$authors = Author::all();
 		
 		$query = Book::query();
 
@@ -37,10 +41,11 @@ class BooksSortedController extends Controller
 
 		$books = $query->get();
 
-		return view('books.index', ['books' => $books]);
+		return view('books.index', ['books' => $books, 'authors' => $authors]);
 	}
 
 	public function name_sortDESC() {
+		$authors = Author::all();
 		
 		$query = Book::query();
 
@@ -48,10 +53,11 @@ class BooksSortedController extends Controller
 
 		$books = $query->get();
 
-		return view('books.index', ['books' => $books]);
+		return view('books.index', ['books' => $books, 'authors' => $authors]);
 	}
 
 	public function publish_year_sortASC() {
+		$authors = Author::all();
 		
 		$query = Book::query();
 
@@ -59,10 +65,11 @@ class BooksSortedController extends Controller
 
 		$books = $query->get();
 
-		return view('books.index', ['books' => $books]);
+		return view('books.index', ['books' => $books, 'authors' => $authors]);
 	}
 
 	public function publish_year_sortDESC() {
+		$authors = Author::all();
 		
 		$query = Book::query();
 
@@ -70,10 +77,11 @@ class BooksSortedController extends Controller
 
 		$books = $query->get();
 
-		return view('books.index', ['books' => $books]);
+		return view('books.index', ['books' => $books, 'authors' => $authors]);
 	}
 
 	public function author_sortASC() {
+		$authors = Author::all();
 		
 		$query = Book::query();
 
@@ -81,10 +89,11 @@ class BooksSortedController extends Controller
 
 		$books = $query->get();
 
-		return view('books.index', ['books' => $books]);
+		return view('books.index', ['books' => $books, 'authors' => $authors]);
 	}
 
 	public function author_sortDESC() {
+		$authors = Author::all();
 		
 		$query = Book::query();
 
@@ -92,7 +101,7 @@ class BooksSortedController extends Controller
 
 		$books = $query->get();
 
-		return view('books.index', ['books' => $books]);
+		return view('books.index', ['books' => $books, 'authors' => $authors]);
 	}
 
 }
